@@ -31,7 +31,7 @@ namespace MusicPlayer
 
         private void btnPlayPause_Click(object sender, RoutedEventArgs e)
         {
-            txtSongName.Text = list.Head.Next.Data;
+
         }
     }
 }
