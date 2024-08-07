@@ -31,7 +31,17 @@ namespace MusicPlayer
 
         private void btnPlayPause_Click(object sender, RoutedEventArgs e)
         {
+            txtSongName.Text = list.getSong();
+        }
 
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            list.getSong("next");
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            list.getSong("prev");
         }
     }
 }

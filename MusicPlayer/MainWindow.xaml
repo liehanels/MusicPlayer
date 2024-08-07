@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Frame x:Name="mainFrame" Content="" Margin="0,0,0,-15"/>
-        <Button x:Name="btnPrevious" Content="Previous" HorizontalAlignment="Left" Margin="143,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.155,0.327" FontWeight="Bold" Height="31" Width="71"/>
-        <Button x:Name="btnNext" Content="Next" HorizontalAlignment="Left" Margin="586,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.155,0.327" FontWeight="Bold" Height="31" Width="71"/>
+        <Button x:Name="btnPrevious" Content="Previous" HorizontalAlignment="Left" Margin="143,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.155,0.327" FontWeight="Bold" Height="31" Width="71" Click="btnPrevious_Click"/>
+        <Button x:Name="btnNext" Content="Next" HorizontalAlignment="Left" Margin="586,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.155,0.327" FontWeight="Bold" Height="31" Width="71" Click="btnNext_Click"/>
         <Button x:Name="btnPlayPause" Content="Play/Pause" HorizontalAlignment="Left" Margin="400,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.155,0.327" FontWeight="Bold" Height="31" Width="71" Click="btnPlayPause_Click"/>
         <Button x:Name="btnAddMusic" Content="Add Music" HorizontalAlignment="Left" Margin="400,379,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.155,0.327" FontWeight="Bold" Height="31" Width="71" Click="btnAddMusic_Click"/>
         <TextBox x:Name="txtSongName" HorizontalAlignment="Center" Margin="0,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="514" Height="34" IsEnabled="False" FontWeight="Bold" TextAlignment="Center" FontSize="20"/>

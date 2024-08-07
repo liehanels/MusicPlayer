@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MusicPlayer
 {
     public class CDList
     {
         public Node Head { get; private set; }
+        public Node Current { get; private set; }
         private Node Tail { get; set; }
         public CDList()
         {
@@ -40,22 +42,21 @@ namespace MusicPlayer
         {
             if (Tail == null)
             {
-                Console.WriteLine("List is empty");
+                MessageBox.Show("List is empty");
                 return;
             }
             Node temp = Tail.Next;
             do
             {
-                Console.WriteLine(temp.Data + " ");
+                MessageBox.Show(temp.Data + " ");
                 temp = temp.Next;
             } while (temp != Tail.Next);
-            Console.WriteLine();
         }
         public void DeleteNode(string key)
         {
             if (Tail == null)
             {
-                Console.WriteLine("List is empty");
+                MessageBox.Show("List is empty");
                 return;
             }
             if (Tail.Next == Tail && Tail.Data == key)
@@ -76,7 +77,7 @@ namespace MusicPlayer
             } while (current != Tail);
             if (current == Tail && current.Data != key)
             {
-                Console.WriteLine("Key not found in list");
+                MessageBox.Show("Key not found in list");
                 return;
             }
             prev.Next = current.Next;
@@ -105,6 +106,29 @@ namespace MusicPlayer
                 Head.Previous = newNode;
                 Head = newNode;
             }
+        }
+        public string getSong()
+        {
+            if (Head == null)
+            {
+                return "No song playing";
+            }
+            Current = Head;
+            return Head.Data;
+        }
+        public string getSong(string skipTo)
+        {
+            if (Current == null)
+            {
+                Current = Tail;
+            }
+            if (skipTo.Equals("next")) 
+            {
+                Current = Current.Next;
+                return Current.Data;
+            }
+            Current = Current.Previous;
+            return Current.Data;
         }
     }
 }
