@@ -36,12 +36,12 @@ namespace MusicPlayer
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
-            list.getSong("next");
+            txtSongName.Text = list.getSong("next");
         }
 
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
         {
-            list.getSong("prev");
+            txtSongName.Text = list.getSong("prev");
         }
     }
 }

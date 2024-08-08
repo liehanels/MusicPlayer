@@ -52,69 +52,14 @@ namespace MusicPlayer
                 temp = temp.Next;
             } while (temp != Tail.Next);
         }
-        public void DeleteNode(string key)
+        public string getSong()
         {
             if (Tail == null)
             {
-                MessageBox.Show("List is empty");
-                return;
-            }
-            if (Tail.Next == Tail && Tail.Data == key)
-            {
-                Tail = null;
-                return;
-            }
-            Node current = Tail;
-            Node prev = null;
-            do
-            {
-                prev = current;
-                current = current.Next;
-                if (current.Data == key)
-                {
-                    break;
-                }
-            } while (current != Tail);
-            if (current == Tail && current.Data != key)
-            {
-                MessageBox.Show("Key not found in list");
-                return;
-            }
-            prev.Next = current.Next;
-            if (current == Tail)
-            {
-                if (Tail.Next == Tail)
-                {
-                    Tail = null;
-                }
-                else
-                {
-                    Tail = prev;
-                }
-            }
-        }
-        public void Insert(string data)
-        {
-            Node newNode = new Node(data);
-            if (Head != null )
-            {
-                Head = newNode;
-            }
-            else
-            {
-                newNode.Next = Head;
-                Head.Previous = newNode;
-                Head = newNode;
-            }
-        }
-        public string getSong()
-        {
-            if (Head == null)
-            {
                 return "No song playing";
             }
-            Current = Head;
-            return Head.Data;
+            Current = Tail;
+            return Tail.Data;
         }
         public string getSong(string skipTo)
         {
@@ -122,13 +67,21 @@ namespace MusicPlayer
             {
                 Current = Tail;
             }
-            if (skipTo.Equals("next")) 
+            if (skipTo.Equals("next") && Current != null)
             {
                 Current = Current.Next;
                 return Current.Data;
             }
-            Current = Current.Previous;
-            return Current.Data;
+            else if (skipTo.Equals("prev") && Current != null)
+            {
+                Current = Current.Next.Previous;
+                return Current.Data;
+            }
+            else
+            {
+                return "No song queued";
+            }
+                
         }
     }
 }
