@@ -25,6 +25,7 @@ namespace MusicPlayer
             Node newNode = new Node(data);
             Tail = newNode;
             Tail.Next = Tail;
+            Tail.Previous = Head;
         }
         public void AddToEnd(string data)
         {
@@ -36,6 +37,7 @@ namespace MusicPlayer
             Node newNode = new Node(data);
             newNode.Next = Tail.Next;
             Tail.Next = newNode;
+            Tail.Previous = Head;
             Tail = newNode;
         }
         public void PrintList()
@@ -74,7 +76,7 @@ namespace MusicPlayer
             }
             else if (skipTo.Equals("prev") && Current != null)
             {
-                Current = Current.Next.Previous;
+                Current = Current.Previous;
                 return Current.Data;
             }
             else
